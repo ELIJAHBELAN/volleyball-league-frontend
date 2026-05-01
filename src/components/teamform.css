@@ -1,0 +1,44 @@
+/* teamform.css */
+
+body {
+    background-image: url('../assets/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.league-form-container {
+    max-width: 500px;
+    width: 90%;
+    padding: 40px 30px;
+    background-color: rgba(255, 255, 255, 0.85); /* Increased opacity for readability */
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); 
+    border-top: 6px solid #b71c1c; /* Santa Rosa Red */
+    font-family: 'Inter', sans-serif;
+}
+
+.league-form-title {
+    text-align: center;
+    color: #b71c1c; 
+    font-size: 32px; /* Slightly smaller for long city names */
+    margin-bottom: 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.league-form-button {
+    background-color: #b71c1c;
+    /* Other properties stay the same */
+}
+
+.league-form-button:hover {
+    background-color: #7f0000;
+}
