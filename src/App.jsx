@@ -1,5 +1,6 @@
 import React from "react";
-import TeamForm from "./teamform"; // Ensure the path and filename match exactly
+import TeamForm from "./teamform.jsx"; // Added .jsx extension
+import "./teamform.css";
 
 function App() {
   return (
