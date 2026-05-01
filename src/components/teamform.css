@@ -18,7 +18,7 @@ body {
     z-index: 10; /* Ensures the form is on top of the background */
     max-width: 500px;
     width: 90%;
-    padding: 40px 30px center;
+    padding: 40px 30px;
     background-color: rgba(255, 255, 255, 0.92); /* Higher opacity for better visibility */
     backdrop-filter: blur(10px);
     border-radius: 12px;
