@@ -81,7 +81,6 @@ const TeamForm = () => {
                 <input type="text" name="contact" value={formData.contact} onChange={handleChange} placeholder="Contact Number (+639XXXXXXXXX)" className="league-form-input" required />
                 <input type="number" name="height" value={formData.height} onChange={handleChange} placeholder="Height (cm)" className="league-form-input" required />
                 <input type="number" name="weight" value={formData.weight} onChange={handleChange} placeholder="Weight (kg)" className="league-form-input" required />
-                <textarea name="medicalConditions" value={formData.medicalConditions} onChange={handleChange} placeholder="Medical Conditions" rows="3" className="league-form-input" required></textarea>
 
                 <hr className="league-form-divider" />
 
