@@ -1,6 +1,6 @@
 import React from "react";
-import TeamForm from "./teamform.jsx"; // Added .jsx extension
-import "./teamform.css";
+import TeamForm from "./components/teamform.jsx"; // Added .jsx extension
+import "./components/teamform.css";
 
 function App() {
   return (
