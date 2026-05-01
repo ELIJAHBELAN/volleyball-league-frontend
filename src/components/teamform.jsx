@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./teamform.css";
+import "./teamform.css"; // Ensure this filename matches exactly
 
-const SantaRosaVolleyballForm = () => {
+const TeamForm = () => {
     const [formData, setFormData] = useState({
         barangay: "",
         address: "",
@@ -15,7 +15,6 @@ const SantaRosaVolleyballForm = () => {
         position: ""
     });
 
-    // Updated for Santa Rosa, Laguna
     const santaRosaBarangays = [
         "Aplaya", "Balibago", "Caingin", "Dila", "Dita", "Don Jose", 
         "Ibaba", "Kanluran", "Labas", "Macabling", "Malitlit", "Malusak", 
@@ -38,14 +37,11 @@ const SantaRosaVolleyballForm = () => {
         }
 
         try {
-            // Updated to your volleyball-league-backend link
             const response = await fetch("https://volleyball-league-backend.onrender.com/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
-
-            const result = await response.json();
 
             if (response.ok) {
                 alert("🏐 REGISTRATION SUBMITTED SUCCESSFULLY!");
@@ -54,6 +50,7 @@ const SantaRosaVolleyballForm = () => {
                     height: "", weight: "", medicalConditions: "", competitionLevel: "", position: ""
                 });
             } else {
+                const result = await response.json();
                 alert("❌ Submission failed: " + (result.message || "Unknown error"));
             }
         } catch (error) {
@@ -64,7 +61,6 @@ const SantaRosaVolleyballForm = () => {
     return (
         <div className="league-form-container">
             <h1 className="league-form-title">Santa Rosa Volleyball League</h1>
-            
             <p className="league-form-subtitle">
                 Official registration and assessment portal for volleyball players<br/>
                 residing in Santa Rosa City for the 2026 Season.
@@ -78,30 +74,26 @@ const SantaRosaVolleyballForm = () => {
                     ))}
                 </select>
                 
-                <input type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Complete Address (Street, Subdivision, etc.)" className="league-form-input" required />
-
+                <input type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Complete Address" className="league-form-input" required />
                 <hr className="league-form-divider" />
-
                 <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Full Name" className="league-form-input" required />
-                <input type="number" name="age" value={formData.age} onChange={handleChange} placeholder="Age" min="5" max="60" className="league-form-input" required />
+                <input type="number" name="age" value={formData.age} onChange={handleChange} placeholder="Age" min="5" className="league-form-input" required />
                 <input type="text" name="contact" value={formData.contact} onChange={handleChange} placeholder="Contact Number (+639XXXXXXXXX)" className="league-form-input" required />
-                <input type="number" name="height" value={formData.height} onChange={handleChange} placeholder="Height (in cm)" min="50" max="250" className="league-form-input" required />
-                <input type="number" name="weight" value={formData.weight} onChange={handleChange} placeholder="Weight (in kg)" min="20" max="200" className="league-form-input" required />
-                <textarea name="medicalConditions" value={formData.medicalConditions} onChange={handleChange} placeholder="Medical Conditions (Write 'None' if applicable)" rows="3" className="league-form-input" required></textarea>
+                <input type="number" name="height" value={formData.height} onChange={handleChange} placeholder="Height (cm)" className="league-form-input" required />
+                <input type="number" name="weight" value={formData.weight} onChange={handleChange} placeholder="Weight (kg)" className="league-form-input" required />
+                <textarea name="medicalConditions" value={formData.medicalConditions} onChange={handleChange} placeholder="Medical Conditions" rows="3" className="league-form-input" required></textarea>
 
                 <hr className="league-form-divider" />
 
-                {/* Updated Competition Levels for Volleyball */}
                 <select name="competitionLevel" value={formData.competitionLevel} onChange={handleChange} className="league-form-input" required>
                     <option value="">Select Competition Level</option>
                     <option value="12U">12 & Under (Elementary)</option>
                     <option value="15U">15 & Under (Aspirants)</option>
                     <option value="18U">18 & Under (Juniors)</option>
-                    <option value="Open">Open Category (19 - 30 Years Old)</option>
-                    <option value="Vets">Executive / Veterans (31 & Above)</option>
+                    <option value="Open">Open Category (19-30)</option>
+                    <option value="Vets">Executive / Veterans (31+)</option>
                 </select>
                 
-                {/* Updated Positions for Volleyball */}
                 <select name="position" value={formData.position} onChange={handleChange} className="league-form-input" required>
                     <option value="">Select Court Position</option>
                     <option value="Setter">Setter (S)</option>
@@ -117,4 +109,4 @@ const SantaRosaVolleyballForm = () => {
     );
 };
 
-export default SantaRosaVolleyballForm;
+export default TeamForm;
