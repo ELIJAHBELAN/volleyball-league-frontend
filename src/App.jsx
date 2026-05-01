@@ -1,10 +1,10 @@
 import React from "react";
-import NBAteamform from "./components/teamform";
+import TeamForm from "./teamform"; // Ensure the path and filename match exactly
 
-function App(){
-  return(
-    <div>
-      <teamform/>
+function App() {
+  return (
+    <div className="App">
+      <TeamForm />
     </div>
   );
 }
