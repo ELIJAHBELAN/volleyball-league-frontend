@@ -14,13 +14,15 @@ body {
 }
 
 .league-form-container {
+    position: relative;
+    z-index: 10; /* Ensures the form is on top of the background */
     max-width: 500px;
     width: 90%;
     padding: 40px 30px;
-    background-color: rgba(255, 255, 255, 0.85); /* Increased opacity for readability */
+    background-color: rgba(255, 255, 255, 0.92); /* Higher opacity for better visibility */
     backdrop-filter: blur(10px);
     border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); 
     border-top: 6px solid #b71c1c; /* Santa Rosa Red */
     font-family: 'Inter', sans-serif;
 }
@@ -28,15 +30,46 @@ body {
 .league-form-title {
     text-align: center;
     color: #b71c1c; 
-    font-size: 32px; /* Slightly smaller for long city names */
+    font-size: 32px;
     margin-bottom: 8px;
     font-weight: 900;
     text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.league-form-subtitle {
+    text-align: center;
+    color: #444;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.league-form-input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.league-form-divider {
+    border: 0;
+    border-top: 1px dashed #bbb;
+    margin: 20px 0;
 }
 
 .league-form-button {
+    width: 100%;
+    padding: 16px;
     background-color: #b71c1c;
-    /* Other properties stay the same */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .league-form-button:hover {
