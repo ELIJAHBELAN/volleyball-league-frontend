@@ -1,113 +1,117 @@
-/* teamform.css */
-
 /* --- IMPORT FONT --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
-/* --- FULL PAGE CENTER FIX --- */
+/* --- RESET & BOX MODEL FIX --- */
+*, *::before, *::after {
+    box-sizing: border-box; /* THIS FIXES THE INPUT OVERFLOW */
+}
+
 html, body, #root {
     height: 100%;
     margin: 0;
 }
 
-/* --- PAGE BACKGROUND --- */
 body {
     font-family: 'Poppins', sans-serif;
-
-    background: #ffffff;
-
+    background: #f4f7f7; /* Slightly off-white for better contrast */
     display: grid;
-    place-items: center; /* PERFECT CENTER (better than flex) */
+    place-items: center;
 }
 
 /* --- FORM CONTAINER (LANDSCAPE STYLE) --- */
 .league-form-container {
-    width: 800px;              /* landscape width */
+    width: 800px;
     max-width: 95%;
     padding: 40px;
-
-    background: #e0f7f7;       /* light teal */
+    background: #e0f7f7;
     border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border-left: 8px solid #009688;
 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-
-    border-left: 8px solid #009688; /* side accent (modern look) */
-
+    /* Grid Layout */
     display: grid;
-    grid-template-columns: 1fr 1fr; /* LANDSCAPE SPLIT */
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; /* Uniform spacing */
+    align-items: start;
 }
 
 /* --- FULL WIDTH ELEMENTS --- */
 .league-form-title,
 .league-form-subtitle,
-.league-form-button {
+.league-form-button,
+.league-form-divider {
     grid-column: span 2;
     text-align: center;
 }
 
-/* --- TITLE --- */
+/* --- TITLE & SUBTITLE --- */
 .league-form-title {
     color: #00695c;
     font-size: 28px;
     font-weight: 800;
-    margin-bottom: 5px;
+    margin: 0;
 }
 
-/* --- SUBTITLE --- */
 .league-form-subtitle {
     color: #555;
     font-size: 14px;
-    margin-bottom: 20px;
+    margin: 5px 0 15px 0;
 }
 
 /* --- INPUTS --- */
 .league-form-input {
-    width: 100%;
-    padding: 14px;
-
+    width: 100%; /* Now stays inside because of border-box */
+    padding: 14px 16px;
     border: 1px solid #b2dfdb;
     border-radius: 10px;
-
     font-size: 14px;
-
+    font-family: inherit;
+    background-color: #ffffff;
     transition: all 0.2s ease;
 }
 
-/* --- INPUT FOCUS --- */
 .league-form-input:focus {
     border-color: #009688;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.15);
 }
 
 /* --- DIVIDER --- */
 .league-form-divider {
-    grid-column: span 2;
     border: none;
     border-top: 1px dashed #80cbc4;
     margin: 10px 0;
+    height: 1px;
+    width: 100%;
 }
 
 /* --- BUTTON --- */
 .league-form-button {
     margin-top: 10px;
     padding: 16px;
-
     background: linear-gradient(135deg, #009688, #00796b);
     color: white;
-
     border: none;
     border-radius: 12px;
-
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
-
     cursor: pointer;
-
-    transition: 0.3s;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .league-form-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 150, 136, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 150, 136, 0.3);
+    filter: brightness(1.1);
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 600px) {
+    .league-form-container {
+        grid-template-columns: 1fr;
+    }
+    .league-form-title, .league-form-subtitle, .league-form-button, .league-form-divider {
+        grid-column: span 1;
+    }
 }
