@@ -3,7 +3,7 @@
 
 /* --- RESET & BOX MODEL FIX --- */
 *, *::before, *::after {
-    box-sizing: border-box; /* Ensures padding/border stays inside the width */
+    box-sizing: border-box; 
 }
 
 html, body, #root {
@@ -13,113 +13,105 @@ html, body, #root {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #f4f7f7; /* Off-white for better contrast */
+    /* Updated background image URL */
+    background: #f4f7f7 url('../assets/bg.png') no-repeat center center fixed;
+    background-size: cover;
     display: grid;
-    place-items: center; /* Centers the whole container on the screen */
+    place-items: center;
 }
 
 /* --- FORM CONTAINER --- */
 .league-form-container {
-    width: 600px; /* Standard portrait-width for this layout */
+    width: 650px; 
     max-width: 95%;
-    padding: 40px;
+    padding: 50px 40px;
     background: #e0f7f7;
-    border-radius: 18px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    border-left: 8px solid #009688;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border-left: 10px solid #009688;
 
-    /* LAYOUT FIX: Stack elements vertically and center them all */
+    /* Center all children vertically */
     display: flex;
     flex-direction: column;
-    align-items: center; /* This ensures the button aligns with the title */
-    gap: 15px; /* Uniform spacing between all fields and elements */
+    align-items: center; 
+    gap: 12px; 
 }
 
 /* --- TITLE & SUBTITLE --- */
 .league-form-title {
-    font-family: 'Poppins', sans-serif; /* Explicitly set font */
     color: #00695c;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 800;
     margin: 0;
-    text-transform: uppercase; /* ALL CAPS */
+    text-transform: uppercase; /* All Caps */
     text-align: center;
+    letter-spacing: 1px;
 }
 
 .league-form-subtitle {
-    font-family: 'Poppins', sans-serif;
-    color: #555;
-    font-size: 8px;
-    font-weight: 300;
-    margin: 5px 0 20px 0;
+    color: #445555;
+    font-size: 12px;
+    margin: 5px 0 25px 0;
     text-align: center;
-    max-width: 450px;
-    line-height: 1.5;
+    max-width: 500px;
+    line-height: 1.6;
 }
 
-/* --- INPUTS & SELECTS --- */
+/* --- INPUT FIELDS --- */
 .league-form-input {
-    width: 100%; /* Stays perfectly contained due to border-box */
-    max-width: 450px; /* Optional: adds nice white space on larger screens */
-    padding: 14px 18px;
+    width: 100%; 
+    max-width: 480px; /* Constrains inputs to fit neatly in the center */
+    padding: 15px 20px;
     border: 1px solid #b2dfdb;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 15px;
-    font-family: inherit;
+    font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
-    color: #333;
-    transition: all 0.2s ease;
-}
-
-/* Ensure native arrow in select dropdown looks consistent */
-select.league-form-input {
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300695C%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.3c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095.2c3.6-3.6%205.4-7.8%205.4-12.9%200-5-1.8-9.3-5.4-12.9z%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 18px top 50%;
-    background-size: 12px auto;
-    padding-right: 40px; /* Space for the new arrow */
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .league-form-input:focus {
     border-color: #009688;
     outline: none;
-    box-shadow: 0 0 0 4px rgba(0, 150, 136, 0.15);
+    box-shadow: 0 0 0 4px rgba(0, 150, 136, 0.1);
+}
+
+/* Custom Select Styling */
+select.league-form-input {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2300695c' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
 }
 
 /* --- DIVIDER --- */
 .league-form-divider {
     border: none;
     border-top: 1px dashed #80cbc4;
-    margin: 10px 0;
-    height: 1px;
+    margin: 15px 0;
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
 }
 
-/* --- BUTTON (SUBMIT) --- */
+/* --- SUBMIT BUTTON --- */
 .league-form-button {
-    margin-top: 25px; /* Added margin to push it below the form grid */
-    padding: 16px 30px;
-    background: #00796b; /* Solid color based on screenshot */
+    margin-top: 20px;
+    padding: 16px 45px;
+    background: #00897b; 
     color: white;
     border: none;
-    border-radius: 10px; /* Matched to input radius */
-    font-size: 18px;
+    border-radius: 12px;
+    font-size: 17px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    text-transform: capitalize;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
-    
-    /* Self-Alignment override just in case */
-    align-self: center; 
+    transition: all 0.3s ease;
 }
 
 .league-form-button:hover {
-    background-color: #00695c;
+    background: #00695c;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 121, 107, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 137, 123, 0.2);
 }
 
 .league-form-button:active {
