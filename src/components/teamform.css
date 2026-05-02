@@ -6,8 +6,7 @@ body {
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
 
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
-                url('../assets/bg.png') center/cover no-repeat fixed;
+    background-color: #ffffff; /* white background */
 
     display: flex;
     align-items: center;
@@ -20,19 +19,19 @@ body {
     width: 90%;
     padding: 40px 30px;
 
-    background: rgba(255, 255, 255, 0.95);
+    background-color: #e0f7f7; /* light teal */
     border-radius: 16px;
 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    border-top: 6px solid #009688; /* teal accent */
 
     text-align: center;
-
-    animation: fadeIn 0.6s ease-in-out;
 }
 
 /* --- TITLE --- */
 .league-form-title {
-    color: #b71c1c;
+    color: #00796b; /* dark teal */
     font-size: 30px;
     font-weight: 900;
     margin-bottom: 5px;
@@ -40,7 +39,7 @@ body {
 
 /* --- SUBTITLE --- */
 .league-form-subtitle {
-    color: #666;
+    color: #555;
     font-size: 14px;
     margin-bottom: 25px;
 }
@@ -51,24 +50,25 @@ body {
     padding: 14px;
     margin-bottom: 15px;
 
-    border: 1px solid #ddd;
+    border: 1px solid #b2dfdb;
     border-radius: 8px;
 
     font-size: 14px;
+    box-sizing: border-box;
 
     transition: 0.2s;
 }
 
 .league-form-input:focus {
-    border-color: #b71c1c;
+    border-color: #009688;
     outline: none;
-    box-shadow: 0 0 0 2px rgba(183, 28, 28, 0.2);
+    box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.2);
 }
 
 /* --- DIVIDER --- */
 .league-form-divider {
     border: none;
-    border-top: 1px dashed #ccc;
+    border-top: 1px dashed #80cbc4;
     margin: 20px 0;
 }
 
@@ -77,7 +77,7 @@ body {
     width: 100%;
     padding: 15px;
 
-    background: linear-gradient(135deg, #b71c1c, #7f0000);
+    background-color: #009688;
     color: white;
 
     border: none;
@@ -92,18 +92,6 @@ body {
 }
 
 .league-form-button:hover {
+    background-color: #00796b;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(183, 28, 28, 0.4);
-}
-
-/* --- ANIMATION --- */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
